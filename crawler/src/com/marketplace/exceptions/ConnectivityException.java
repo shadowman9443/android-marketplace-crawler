@@ -14,20 +14,22 @@
  * limitations under the License.
  * 
  */
-package com.raunak.exceptions;
+package com.marketplace.exceptions;
 
 /**
- * <code>UserNotAvailableException</code> can be thrown when all the user name
- * for accessing the Google Marketplace are in use.
+ * <code>ConnectivityException</code> can be used to indicate when there are
+ * connectivity issues between the crawler and the underlying database which
+ * stores all the information about an app.
  * 
  * @author raunak
  * @version 1.0
  */
-public class UserUnavailableException extends Exception {
+public class ConnectivityException extends Exception {
 
-	private static final long serialVersionUID = -889501132294477815L;
+	private static final long serialVersionUID = -528182965388732238L;
 
-	public UserUnavailableException() {
-		super("All username are in use at the moment");
+	public ConnectivityException(String message) {
+		super(message);
 	}
+
 }

@@ -14,22 +14,20 @@
  * limitations under the License.
  * 
  */
-package com.raunak.exceptions;
+package com.marketplace.exceptions;
 
 /**
- * <code>ConnectivityException</code> can be used to indicate when there are
- * connectivity issues between the crawler and the underlying database which
- * stores all the information about an app.
+ *  <code>SessionUnavailableException</code> can be thrown when all the sessions
+ * for accessing the Google Marketplace are in use.
  * 
  * @author raunak
  * @version 1.0
  */
-public class ConnectivityException extends Exception {
+public class SessionUnavailableException extends Exception{
 
-	private static final long serialVersionUID = -528182965388732238L;
+	private static final long serialVersionUID = 5077999004366246394L;
 
-	public ConnectivityException(String message) {
+	public SessionUnavailableException(String message){
 		super(message);
 	}
-
 }

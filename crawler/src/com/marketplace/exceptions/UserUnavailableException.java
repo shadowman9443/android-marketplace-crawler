@@ -14,20 +14,20 @@
  * limitations under the License.
  * 
  */
-package com.raunak.exceptions;
+package com.marketplace.exceptions;
 
 /**
- *  <code>SessionUnavailableException</code> can be thrown when all the sessions
+ * <code>UserNotAvailableException</code> can be thrown when all the user name
  * for accessing the Google Marketplace are in use.
  * 
  * @author raunak
  * @version 1.0
  */
-public class SessionUnavailableException extends Exception{
+public class UserUnavailableException extends Exception {
 
-	private static final long serialVersionUID = 5077999004366246394L;
+	private static final long serialVersionUID = -889501132294477815L;
 
-	public SessionUnavailableException(String message){
-		super(message);
+	public UserUnavailableException() {
+		super("All username are in use at the moment");
 	}
 }
