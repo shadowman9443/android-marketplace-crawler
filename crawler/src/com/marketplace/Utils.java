@@ -89,7 +89,7 @@ public class Utils {
 	 * 
 	 * @return a list of corresponding int value.
 	 */
-	public static List<Integer> permissionToInt(List<String> permissions) {
+	synchronized public static List<Integer> permissionToInt(List<String> permissions) {
 		HashMap<String, Integer> pMap = new Permission().getPMap();
 		List<Integer> pListArr = new ArrayList<Integer>(permissions.size());
 

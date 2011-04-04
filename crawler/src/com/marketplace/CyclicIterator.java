@@ -8,8 +8,9 @@ import java.util.NoSuchElementException;
  * <code>CyclicIterator</code> allows one to iterate over elements in a infinite
  * loop.
  * 
+ * @author unknown
  * @version 1.0
- * @referenced Stackoverflow
+ * @see Stackoverflow
  */
 public class CyclicIterator<T> implements Iterator<T> {
 

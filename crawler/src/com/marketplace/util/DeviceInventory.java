@@ -17,7 +17,6 @@
 package com.marketplace.util;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -125,10 +124,11 @@ public class DeviceInventory {
 	/**
 	 * Get all Android devices
 	 * 
-	 * @return <code>Iterator</code><<code>Device</code>>
+	 * @return a list of devices
 	 */
-	public static Iterator<Device> getAllDevices() {
+	public static List<Device> getAllDevices() {
 		List<Device> device = new ArrayList<Device>(11);
+		
 		device.add(getDevice(1));
 		device.add(getDevice(2));
 		device.add(getDevice(3));
@@ -141,6 +141,6 @@ public class DeviceInventory {
 		device.add(getDevice(10));
 		device.add(getDevice(11));
 
-		return device.iterator();
+		return device;
 	}
 }
