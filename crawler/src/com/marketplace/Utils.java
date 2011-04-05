@@ -65,19 +65,9 @@ public class Utils {
 	private static String fileName = "permission";
 
 	/**
-	 * Generates a random long which is used as a dummy market id
-	 * 
-	 * @return a random long
-	 * @referenced http://stackoverflow.com/questions/2546078/java-random-long-number-in-0-x-n-range/2546186#2546186
+	 * A list of permission
 	 */
-	public static long nextLong() {
-		long bits, val;
-		do {
-			bits = (random.nextLong() << 1) >>> 1;
-			val = bits % 10000000000000L;
-		} while (bits - val + (10000000000000L - 1) < 0L);
-		return val + 30000000000000L;
-	}
+	private static HashMap<String, Integer> pMap = new Permission().getPMap();
 
 	/**
 	 * Converts a list of Android permissions to a corresponding int value in
@@ -90,7 +80,6 @@ public class Utils {
 	 * @return a list of corresponding int value.
 	 */
 	synchronized public static List<Integer> permissionToInt(List<String> permissions) {
-		HashMap<String, Integer> pMap = new Permission().getPMap();
 		List<Integer> pListArr = new ArrayList<Integer>(permissions.size());
 
 		for (String permission : permissions) {
@@ -106,7 +95,7 @@ public class Utils {
 
 					pMap.put(permission, pMap.size() + 1);
 					new Sender().doBasicHttpPost("{\"permission\":\"" + permission + "\"}", Constants.newPermissionUrlJson);
-					
+
 				} catch (FileNotFoundException e) {
 					e.printStackTrace();
 				} catch (ConnectivityException e) {
@@ -116,6 +105,22 @@ public class Utils {
 		}
 
 		return pListArr;
+	}
+
+	/**
+	 * Generates a random long which is used as a dummy market id
+	 * 
+	 * @return a random long
+	 * @referenced 
+	 *             http://stackoverflow.com/questions/2546078/java-random-long-number-in-0-x-n-range/2546186#2546186
+	 */
+	public static long nextLong() {
+		long bits, val;
+		do {
+			bits = (random.nextLong() << 1) >>> 1;
+			val = bits % 10000000000000L;
+		} while (bits - val + (10000000000000L - 1) < 0L);
+		return val + 30000000000000L;
 	}
 
 	/**
