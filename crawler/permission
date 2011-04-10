@@ -800,3 +800,4 @@ com.beem.project.beem.BEEM_SERVICE	799
 org.anddev.andremote.pluginlayout.intent.permission.RECEIVE_PLUGINLAYOUT_REQUEST	800
 org.anddev.andremote.pluginlayout.intent.permission.SEND_PLUGINLAYOUT_OFFER	801
 com.handmark.mpp.varsitysportseast.permission.C2D_MESSAGE	802
+android.vending.BILLING	803
