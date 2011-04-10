@@ -93,29 +93,21 @@ public class PackageThread extends AppThread {
 
 	@Override
 	public void run() {
-		log.info("Creating thread for package: " + packageName);
+		log.info("Creating thread for package: " + packageName + "\t API Level: " + this.session.getDevice().getDeviceVersion());
 
 		try {
-			while (attempts < maxAttempts) {
-
-				AppsResponse appsResponse = fetcher.getAppsByPackageName(session.getMarketSession(), packageName);
-
-				if (appsResponse != null) {
-					try {
-						sender.addAppToCollection(appsResponse, session.getDevice().getDeviceVersion());
-					} catch (ConnectivityException ce) {
-						ce.printStackTrace();
-					}
-				} else {
-					attempts++;
+			AppsResponse appsResponse = fetcher.getAppsByPackageName(session.getMarketSession(), packageName);
+			if (appsResponse != null) {
+				try {
+					sender.addAppToCollection(appsResponse, session.getDevice().getDeviceVersion());
+				} catch (ConnectivityException ce) {
+					ce.printStackTrace();
 				}
-
-				// Sleep 1 ~ 3 Minutes
-				sleep(sleepTime + new Random().nextInt(120000));
 			}
-
-			log.info("Thread execution completed : " + packageName);
-
+			
+			sleep(sleepTime + new Random().nextInt(120000));
+			log.info("Thread execution completed : " + packageName + "\t API Level: " + this.session.getDevice().getDeviceVersion());
+			
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}

@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  rating: 1
+  ratingCount: 1
+  downloadCount: 1
+  downloadCountText: 1
+  references: 
+
+two:
+  rating: 1
+  ratingCount: 1
+  downloadCount: 1
+  downloadCountText: 1
+  references: 

@@ -61,7 +61,7 @@ public abstract class AppThread extends Thread {
 	/**
 	 * Maximum number of attempts a query can make
 	 */
-	protected final int maxAttempts = 5;
+	protected final int maxAttempts = 3;
 
 	/**
 	 * Sleep time between each marketplace query.

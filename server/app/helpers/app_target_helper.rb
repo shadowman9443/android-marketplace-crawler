@@ -1,0 +1,2 @@
+module AppTargetHelper
+end

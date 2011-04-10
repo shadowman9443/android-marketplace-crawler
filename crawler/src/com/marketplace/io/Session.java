@@ -47,11 +47,6 @@ public class Session {
 	private Device device;
 
 	/**
-	 * a boolean flag. set to true if the session is in use; false otherwise
-	 */
-	private boolean status;
-
-	/**
 	 * a boolean flag. set to true if the session is corrupted; false otherwise
 	 */
 	private boolean stale;
@@ -74,8 +69,6 @@ public class Session {
 	 */
 	public Session(Device device, User user) {
 		this.stale = false;
-		this.status = false; // Makes this session object available for use.
-
 		this.user = user;
 		this.device = device;
 
@@ -102,25 +95,6 @@ public class Session {
 	 */
 	public void isStale(boolean stale) {
 		this.stale = stale;
-	}
-
-	/**
-	 * Gets the availability of <code>Session</code> object
-	 * 
-	 * @return status; a boolean
-	 */
-	public boolean inUse() {
-		return status;
-	}
-
-	/**
-	 * Sets the availability of <code>Session</code> object
-	 * 
-	 * @param status
-	 *            current state of <code>Session</code> object
-	 */
-	public void inUse(boolean status) {
-		this.status = status;
 	}
 
 	/**
@@ -163,7 +137,6 @@ public class Session {
 	 */
 	public void setMarketSession(MarketSession marketSession) {
 		this.stale = false;
-		this.status = true;
 		this.marketSession = marketSession;
 	}
 
@@ -172,7 +145,6 @@ public class Session {
 	 */
 	public void refreshMarketSession() {
 		this.stale = false;
-		this.status = true;
 
 		this.marketSession = new MarketSession();
 		this.marketSession.login(user.getUsername(), user.getPassword());

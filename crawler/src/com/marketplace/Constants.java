@@ -38,7 +38,7 @@ public class Constants {
 	
 	public static final String appExistUrl = appsUrl + "/exists" + jsonExtension;
 	
-	public static final String appNextIdUrl = appsUrl + "/get_next_ids" + jsonExtension; 
+	public static final String appNextIdUrl = appsUrl + "/ids" + jsonExtension; 
 	
 	public static final String appPermissionUrl = url + "/app_permissions/update_permissions" + jsonExtension;
 	

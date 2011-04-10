@@ -78,7 +78,7 @@ public class SessionManager {
 		}
 		return sessions;
 	}
-
+	
 	/**
 	 * Initializes the <code>Session</code> array using the passed parameter.
 	 * All the Sessions in the session array will be for this API Level.
@@ -88,12 +88,8 @@ public class SessionManager {
 	 * @return an array of <code>Session</code>
 	 */
 	public Session[] initSessions(int apiLevel) {
-
-		if ((apiLevel < 1) || (apiLevel > (sessions.length + 1))) {
-			throw new IllegalAccessError("Android API Level " + apiLevel + " is not supported by this library.");
-		}
-
 		Session[] sessions = new Session[DeviceInventory.getAllDevices().size()];
+		
 		for (int i = 0; i < sessions.length; i++) {
 			try {
 				sessions[i] = createNewSession(apiLevel);
@@ -147,8 +143,7 @@ public class SessionManager {
 		refreshSessions();
 
 		for (Session session : sessions) {
-			if (session.getDevice().getDeviceVersion() >= apiLevel && (!session.inUse())) {
-				session.inUse(true);
+			if (session.getDevice().getDeviceVersion() >= apiLevel) {
 				return session;
 			}
 		}

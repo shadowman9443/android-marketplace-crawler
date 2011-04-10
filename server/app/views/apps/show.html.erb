@@ -1,0 +1,120 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Creator:</b>
+  <%= @app.creator %>
+</p>
+
+<p>
+  <b>Packagename:</b>
+  <%= @app.packageName %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%= @app.title %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @app.description %>
+</p>
+
+<p>
+  <b>Appid:</b>
+  <%= @app.appId %>
+</p>
+
+<p>
+  <b>Category:</b>
+  <%= @app.category %>
+</p>
+
+<p>
+  <b>Recentchanges:</b>
+  <%= @app.recentChanges %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @app.email %>
+</p>
+
+<p>
+  <b>Phone:</b>
+  <%= @app.phone %>
+</p>
+
+<p>
+  <b>Website:</b>
+  <%= @app.website %>
+</p>
+
+<p>
+  <b>Version:</b>
+  <%= @app.version %>
+</p>
+
+<p>
+  <b>Versioncode:</b>
+  <%= @app.versionCode %>
+</p>
+
+<p>
+  <b>Apptype:</b>
+  <%= @app.appType %>
+</p>
+
+<p>
+  <b>Promotext:</b>
+  <%= @app.promoText %>
+</p>
+
+<p>
+  <b>Promovideo:</b>
+  <%= @app.promoVideo %>
+</p>
+
+<p>
+  <b>Screenshotcount:</b>
+  <%= @app.screenshotCount %>
+</p>
+
+<p>
+  <b>Price:</b>
+  <%= @app.price %>
+</p>
+
+<p>
+  <b>Pricecurrency:</b>
+  <%= @app.priceCurrency %>
+</p>
+
+<p>
+  <b>Installsize:</b>
+  <%= @app.installSize %>
+</p>
+
+<p>
+  <b>Rating:</b>
+  <%= @app.rating.rating %>
+</p>
+
+<p>
+  <b>Rating Count:</b>
+  <%= @app.rating.ratingCount %>
+</p>
+
+<p>
+  <b>Download Count:</b>
+  <%= @app.rating.downloadCount %>
+</p>
+
+<p>
+  <b>Download Count (text):</b>
+  <%= @app.rating.downloadCountText %>
+</p>
+
+
+<%= link_to 'Edit', edit_app_path(@app) %> |
+<%= link_to 'Back', apps_path %>

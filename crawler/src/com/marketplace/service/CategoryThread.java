@@ -130,7 +130,7 @@ public class CategoryThread extends AppThread {
 		try {
 			while (startIndex < maxAppIndex) {
 
-				AppsResponse appsResponse = fetcher.getAppByCategory(startIndex, this.categoryName, this.newest, session.getMarketSession());
+				AppsResponse appsResponse = fetcher.getAppByCategory(session.getMarketSession(), this.categoryName, startIndex, this.newest);
 
 				if ((appsResponse != null) && (attempts < maxAttempts)) {
 					try {

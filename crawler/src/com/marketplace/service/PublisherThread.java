@@ -102,11 +102,7 @@ public class PublisherThread extends AppThread {
 
 		while (hasNext) {
 			try {
-				appsResponse = fetcher.getAppByPublisher(startIndex, this.publisherName, session.getMarketSession());
-
-				if (startIndex > noOfPublishedApps) {
-					hasNext = false;
-				}
+				appsResponse = fetcher.getAppByPublisher(session.getMarketSession(), this.publisherName, startIndex);
 
 				if ((appsResponse != null) && (attempts < maxAttempts)) {
 					if (!setCount) {
@@ -131,6 +127,10 @@ public class PublisherThread extends AppThread {
 				sleep(sleepTime + new Random().nextInt(120000));
 			} catch (InterruptedException e) {
 				e.printStackTrace();
+			}
+			
+			if (startIndex >= noOfPublishedApps || noOfPublishedApps >= 800) {
+				hasNext = false;
 			}
 		}
 

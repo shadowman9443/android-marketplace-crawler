@@ -1,0 +1,93 @@
+<%= form_for(@app) do |f| %>
+  <% if @app.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@app.errors.count, "error") %> prohibited this app from being saved:</h2>
+
+      <ul>
+      <% @app.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :creator %><br />
+    <%= f.text_field :creator %>
+  </div>
+  <div class="field">
+    <%= f.label :packageName %><br />
+    <%= f.text_field :packageName %>
+  </div>
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :appId %><br />
+    <%= f.text_field :appId %>
+  </div>
+  <div class="field">
+    <%= f.label :category %><br />
+    <%= f.text_field :category %>
+  </div>
+  <div class="field">
+    <%= f.label :recentChanges %><br />
+    <%= f.text_area :recentChanges %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :phone %><br />
+    <%= f.text_field :phone %>
+  </div>
+  <div class="field">
+    <%= f.label :website %><br />
+    <%= f.text_field :website %>
+  </div>
+  <div class="field">
+    <%= f.label :version %><br />
+    <%= f.text_field :version %>
+  </div>
+  <div class="field">
+    <%= f.label :versionCode %><br />
+    <%= f.text_field :versionCode %>
+  </div>
+  <div class="field">
+    <%= f.label :appType %><br />
+    <%= f.text_field :appType %>
+  </div>
+  <div class="field">
+    <%= f.label :promoText %><br />
+    <%= f.text_area :promoText %>
+  </div>
+  <div class="field">
+    <%= f.label :promoVideo %><br />
+    <%= f.text_field :promoVideo %>
+  </div>
+  <div class="field">
+    <%= f.label :screenshotCount %><br />
+    <%= f.text_field :screenshotCount %>
+  </div>
+  <div class="field">
+    <%= f.label :price %><br />
+    <%= f.text_field :price %>
+  </div>
+  <div class="field">
+    <%= f.label :priceCurrency %><br />
+    <%= f.text_field :priceCurrency %>
+  </div>
+  <div class="field">
+    <%= f.label :installSize %><br />
+    <%= f.text_field :installSize %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

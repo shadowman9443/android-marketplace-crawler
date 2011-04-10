@@ -129,7 +129,7 @@ public class ImageThread extends AppThread {
 				 * AppImageUsage.SCREENSHOT, "0");
 				 */
 
-				imageResponse = fetcher.getImages(session.getMarketSession(), appId, AppImageUsage.ICON, "0");
+				imageResponse = fetcher.getAppVisuals(session.getMarketSession(), appId, AppImageUsage.ICON, "0");
 
 				if ((imageResponse != null) && (attempts < maxAttempts)) {
 					try {

@@ -1,0 +1,43 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  creator: MyString
+  packageName: MyString
+  title: MyString
+  description: MyText
+  appId: MyString
+  category: MyString
+  recentChanges: MyString
+  email: MyString
+  phone: MyString
+  website: MyString
+  version: MyString
+  versionCode: 1
+  appType: MyString
+  promoText: MyText
+  promoVideo: MyString
+  screenshotCount: 1
+  price: MyString
+  priceCurrency: MyString
+  installSize: MyString
+
+two:
+  creator: MyString
+  packageName: MyString
+  title: MyString
+  description: MyText
+  appId: MyString
+  category: MyString
+  recentChanges: MyString
+  email: MyString
+  phone: MyString
+  website: MyString
+  version: MyString
+  versionCode: 1
+  appType: MyString
+  promoText: MyText
+  promoVideo: MyString
+  screenshotCount: 1
+  price: MyString
+  priceCurrency: MyString
+  installSize: MyString

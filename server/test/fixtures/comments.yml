@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  rating: 1
+  creationTime: MyString
+  authorName: MyString
+  text: MyString
+  authorId: MyString
+  app: 
+
+two:
+  rating: 1
+  creationTime: MyString
+  authorName: MyString
+  text: MyString
+  authorId: MyString
+  app: 
