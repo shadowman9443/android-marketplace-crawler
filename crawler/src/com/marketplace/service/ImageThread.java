@@ -16,6 +16,8 @@
  */
 package com.marketplace.service;
 
+import java.util.Random;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
@@ -123,10 +125,8 @@ public class ImageThread extends AppThread {
 		while (hasNext) {
 			try {
 				/*
-				 * Get screenshot(s)
-				 * 
-				 * fetcher.getImages(session.getMarketSession(), appId,
-				 * AppImageUsage.SCREENSHOT, "0");
+				 * To Get screenshot(s)
+				 * fetcher.getImages(session.getMarketSession(), appId, AppImageUsage.SCREENSHOT, "0");
 				 */
 
 				imageResponse = fetcher.getAppVisuals(session.getMarketSession(), appId, AppImageUsage.ICON, "0");
@@ -146,7 +146,7 @@ public class ImageThread extends AppThread {
 					attempts++;
 				}
 
-				sleep(sleepTime);
+				sleep(sleepTime + new Random().nextInt(120000));
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}

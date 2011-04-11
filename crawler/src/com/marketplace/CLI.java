@@ -23,11 +23,9 @@ public class CLI {
 		addOption(new Option("c", "category", false, "fetch app(s) for all categories"));
 		addOption(new Option("com", "comment", false, "fetch comment(s) for all app(s)"));
 		addOption(new Option("i", "image", false, "fetch image for all app(s)"));
-		addOption(new Option("pub", "publisher", false, "fetch app(s) by publisher(s)"));
-		addOption(new Option("pname", "package", false, "fetch app(s) by package(s)"));
-		addOption(new Option("l", "latest", true, "fetch latest app(s)"));
-		addOption(new Option("pubf", "publisherfile", true, "location of file containing publisher(s)"));
-		addOption(new Option("pnamef", "packagefile", true, "location of file containing package name(s)"));
+		addOption(new Option("pub", "publisher", true, "fetch app(s) by publisher(s), where <arg> is location to file"));
+		addOption(new Option("pname", "package", true, "fetch app(s) by package(s), where <arg> is location to file"));
+		addOption(new Option("l", "latest", true, "latest app(s), where <arg> is true or false"));
 	}
 
 	/**

@@ -121,22 +121,18 @@ public class CommentThread extends AppThread {
 
 		boolean hasNext = true;
 		boolean setCount = false;
-		int noOfComments = 100;
+		int noOfComments = 50;
 		CommentsResponse commentsResponse;
 
 		while (hasNext) {
 			try {
 				commentsResponse = fetcher.getAppComments(session.getMarketSession(), startIndex, appId);
 
-				if (startIndex > noOfComments) {
-					hasNext = false;
-				}
-
 				if ((commentsResponse != null) && (attempts < maxAttempts)) {
 
-					// Only fetch the last 100 comments
+					// Only fetch the last 50 comments
 					if (!setCount) {
-						if (commentsResponse.getEntriesCount() < 100) {
+						if (commentsResponse.getEntriesCount() < 50) {
 							noOfComments = commentsResponse.getEntriesCount();
 						}
 						setCount = true;
@@ -154,6 +150,10 @@ public class CommentThread extends AppThread {
 					startIndex += 10;
 				} else {
 					attempts++;
+				}
+				
+				if (startIndex > noOfComments) {
+					hasNext = false;
 				}
 
 				// Sleep 1 ~ 3 Minutes

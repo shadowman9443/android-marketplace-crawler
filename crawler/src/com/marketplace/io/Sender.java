@@ -27,6 +27,8 @@ import java.net.URISyntaxException;
 import java.util.List;
 
 import org.apache.commons.io.IOUtils;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpVersion;
@@ -60,6 +62,11 @@ import com.marketplace.exceptions.ConnectivityException;
  * @version 1.0
  */
 public class Sender {
+	
+	/**
+	 * Instance of <code>Log</code>
+	 */
+	private Log log = LogFactory.getLog(Sender.class);
 
 	/**
 	 * A <code>HttpPut</code> object for making HTTP Put requests
@@ -283,7 +290,7 @@ public class Sender {
 				appId = saveApp(data);
 			}
 
-			System.out.println("Saving app data");
+			log.info("Adding app " + appsResponse.getApp(appIndex).getTitle() + " to database");
 
 			AppTargetExistResponse appTarget = appTargetExists(appId, sdkVersion);
 
@@ -342,7 +349,7 @@ public class Sender {
 	public void addVisualToCollection(byte[] data, int db_app_id, String filename) throws ConnectivityException {
 		ExistResponse existResponse = appVisualExists(db_app_id, filename);
 
-		System.out.println("Visual exist? - " + existResponse.exists);
+		log.info("Visual exist? - " + existResponse.exists);
 
 		if (existResponse.exists) {
 			doComplexHttpPut(data, "image/jpeg", filename, Constants.appsUrl + "/" + db_app_id + Constants.visuals + "/" + existResponse.id);
@@ -505,9 +512,6 @@ public class Sender {
 	 *             thrown if there was a problem connecting with the database
 	 */
 	public void doComplexHttpPost(byte[] data, String mimeType, String filename, String url) throws ConnectivityException {
-		System.out.println("Performing Post");
-		System.out.println("URL => " + url);
-
 		HttpResponse httpResponse = null;
 
 		try {
