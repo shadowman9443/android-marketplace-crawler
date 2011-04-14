@@ -134,6 +134,7 @@ public class PublisherThread extends AppThread {
 			}
 		}
 
+		sender.closeConnection();
 		log.info("Thread execution completed : " + publisherName);
 	}
 

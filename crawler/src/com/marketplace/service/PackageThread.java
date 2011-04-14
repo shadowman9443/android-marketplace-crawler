@@ -105,8 +105,10 @@ public class PackageThread extends AppThread {
 				}
 			}
 			
-			sleep(sleepTime + new Random().nextInt(120000));
+			sender.closeConnection();
 			log.info("Thread execution completed : " + packageName + "\t API Level: " + this.session.getDevice().getDeviceVersion());
+			
+			sleep(sleepTime + new Random().nextInt(120000));
 			
 		} catch (InterruptedException e) {
 			e.printStackTrace();

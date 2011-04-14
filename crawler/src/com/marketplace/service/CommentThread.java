@@ -163,6 +163,7 @@ public class CommentThread extends AppThread {
 			}
 		}
 
+		sender.closeConnection();
 		log.info("Thread execution completed : " + appId);
 	}
 }

@@ -146,12 +146,15 @@ public class ImageThread extends AppThread {
 					attempts++;
 				}
 
+				// Sleep between 1 ~ 3 minutes
 				sleep(sleepTime + new Random().nextInt(120000));
+				
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
 		}
 
+		sender.closeConnection();
 		log.info("Thread execution completed : " + appId);
 	}
 

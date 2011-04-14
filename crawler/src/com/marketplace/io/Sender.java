@@ -389,7 +389,7 @@ public class Sender {
 				HttpEntity entity = httpResponse.getEntity();
 
 				if (entity != null) {
-					entity.consumeContent();
+					entity.getContent().close();
 				}
 			}
 
@@ -435,8 +435,9 @@ public class Sender {
 
 				HttpEntity entity = httpResponse.getEntity();
 				if (entity != null) {
-					response = IOUtils.toByteArray(entity.getContent());
-					entity.consumeContent();
+					InputStream contentStream = entity.getContent();
+					response = IOUtils.toByteArray(contentStream);
+					contentStream.close();
 				}
 			}
 		} catch (UnsupportedEncodingException e) {
@@ -487,7 +488,7 @@ public class Sender {
 			HttpEntity entity = httpResponse.getEntity();
 
 			if (entity != null) {
-				entity.consumeContent();
+				entity.getContent().close();
 			}
 
 		} catch (ClientProtocolException e) {
@@ -534,7 +535,7 @@ public class Sender {
 			HttpEntity entity = httpResponse.getEntity();
 
 			if (entity != null) {
-				entity.consumeContent();
+				entity.getContent().close();
 			}
 
 		} catch (ClientProtocolException e) {
@@ -893,5 +894,12 @@ public class Sender {
 		 * a boolean flag; true if target exists, false otherwise.
 		 */
 		public boolean exists;
+	}
+	
+	/**
+	 * Close HTTP connection
+	 */
+	public void closeConnection(){
+		this.httpClient.getConnectionManager().shutdown();
 	}
 }

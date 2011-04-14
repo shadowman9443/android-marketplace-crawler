@@ -150,6 +150,7 @@ public class CategoryThread extends AppThread {
 				sleep(sleepTime + new Random().nextInt(120000));
 			}
 
+			sender.closeConnection();
 			log.info("Thread execution completed : " + categoryName);
 
 		} catch (InterruptedException e) {
