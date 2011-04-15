@@ -99,6 +99,7 @@ public class Main {
 			while (categories.hasNext()) {
 				set.add(executorService.submit(new CategoryThread(sessions[i - 1], fetcher, categories.next(), this.latest)));
 			}
+			categories = Category.getAllCategories();
 		}
 
 		return set;
@@ -123,12 +124,14 @@ public class Main {
 
 		Set<Future<?>> set = new HashSet<Future<?>>();
 		Session[] sessions = this.sessionManager.getSessions();
-		Iterator<String> packageNames = fetcher.readFile(this.packageFile).iterator();
+		List<String> packageNames = fetcher.readFile(this.packageFile);
+		Iterator<String> iterator = packageNames.iterator();
 
 		for (int i = sessions.length; i > 0; i--) {
-			while (packageNames.hasNext()) {
-				set.add(executorService.submit(new PackageThread(sessions[i - 1], fetcher, packageNames.next())));
+			while (iterator.hasNext()) {
+				set.add(executorService.submit(new PackageThread(sessions[i - 1], fetcher, iterator.next())));
 			}
+			iterator = packageNames.iterator();
 		}
 
 		return set;
@@ -141,7 +144,7 @@ public class Main {
 	 * @return a set containing <code>PublisherThread</code>
 	 */
 	private Set<Future<?>> createPublisherThread() {
-		log.info("Creating threads for fetching apps via publishers.");
+		log.info("Creating threads for fetching apps via publishers." );
 
 		if (this.publisherFile == null) {
 			System.err.println("Please pass the location of file");
@@ -159,6 +162,7 @@ public class Main {
 			while (pubNames.hasNext()) {
 				set.add(executorService.submit(new PublisherThread(sessions[i - 1], fetcher, pubNames.next())));
 			}
+			pubNames = fetcher.readFile(this.publisherFile).iterator();
 		}
 
 		return set;

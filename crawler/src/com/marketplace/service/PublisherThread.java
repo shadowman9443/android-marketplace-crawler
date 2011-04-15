@@ -93,7 +93,7 @@ public class PublisherThread extends AppThread {
 
 	@Override
 	public void run() {
-		log.info("Creating thread for pubisher " + publisherName);
+		log.info("Creating thread for pubisher " + publisherName + "\t API Level: " + this.session.getDevice().getDeviceVersion());
 
 		boolean hasNext = true;
 		boolean setCount = false;
